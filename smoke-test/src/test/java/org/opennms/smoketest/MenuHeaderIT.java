@@ -140,6 +140,15 @@ public class MenuHeaderIT extends OpenNMSSeleniumIT {
         clickMenuItemWithIcon(helpMenuName, "About", "opennms/about/index.jsp");
         findElementByXpath("//div[@class='card-header']/span[text()='Version Details']");
 
+        // Navigation to new Vue UI page from legacy menubar
+        frontPage();
+        clickMenuItem("Info", "Device Configs", "ui/index.html#/device-config-backup");
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("app")));
+        findElementByXpath("//div[@id='app']//span[text()='Device Configuration']");
+
+        // Now that we are on the new page, make sure navigation works from Vue menubar back to legacy page
+
+
         Unreliables.retryUntilSuccess(60, TimeUnit.SECONDS, () -> {
             frontPage();
             Thread.sleep(200);
