@@ -142,7 +142,7 @@ public class MenuHeaderIT extends OpenNMSSeleniumIT {
 
         // Navigation to new Vue UI page from legacy menubar
         frontPage();
-        clickMenuItem("Info", "Device Configs", "ui/index.html#/device-config-backup");
+        clickMenuItemWithIcon("Info", "Device Configs", "ui/index.html#/device-config-backup");
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("app")));
         findElementByXpath("//div[@id='app']//span[text()='Device Configuration']");
 
